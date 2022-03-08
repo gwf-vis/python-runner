@@ -21,9 +21,12 @@ def run():
     output = subprocess.check_output(['python3', filePath], env=myEnv).decode("utf-8")
     os.remove(filePath)
     result = ''
-    with open(resultFilePath) as file:
+    try:
+        with open(resultFilePath) as file:
         result = file.read()
-    os.remove(resultFilePath)
+        os.remove(resultFilePath)
+    except:
+        pass
     return json.dumps({
         'output': output,
         'result': json.loads(result)
