@@ -23,7 +23,7 @@ def run():
     result = ''
     try:
         with open(resultFilePath) as file:
-        result = file.read()
+            result = file.read()
         os.remove(resultFilePath)
     except:
         pass
