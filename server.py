@@ -29,7 +29,7 @@ def run():
         pass
     return json.dumps({
         'output': output,
-        'result': json.loads(result)
+        'result': json.loads(result) if result else None
     })
 
 
