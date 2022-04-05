@@ -2,6 +2,9 @@ import os
 from typing import Any, List, Union
 from flask import json
 import requests
+import matplotlib.pyplot as plt
+import base64
+from io import BytesIO
 
 SERVER_ENDPOINT = 'http://localhost:5000'
 
@@ -59,3 +62,14 @@ def addPlugin(toPlugin: dict, name: str):
     }
     toPlugin['plugins'].append(plugin)
     return plugin
+
+def renderPyplotFigure():
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    bufferValue = buffer.getvalue()
+    buffer.close()
+    b64 = base64.b64encode(bufferValue)
+    b64String = b64.decode('utf-8')
+    dataUrl = f'data:image/png;base64,{b64String}'
+    print(dataUrl)
