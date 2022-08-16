@@ -6,21 +6,21 @@ from io import BytesIO
 
 SERVER_ENDPOINT = 'http://localhost:5000'
 
-def generateVis(data):
+def generate_vis(data):
     filePath = os.environ['RESULT_FILE_PATH']
     with open(filePath, 'w') as file:
-        text = dumpsJSON(data)
+        text = dumps_json(data)
         file.write(text)
 
 
-def loadsJSON(data):
+def loads_json(data):
     return json.loads(data)
 
 
-def dumpsJSON(data):
+def dumps_json(data):
     return json.dumps(data)
 
-def renderPyplotFigure():
+def render_pyplot_figure():
     buffer = BytesIO()
     plt.savefig(buffer, format='png')
     buffer.seek(0)
