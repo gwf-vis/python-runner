@@ -33,6 +33,7 @@ def render_pyplot_figure():
     dataUrl = f'data:image/png;base64,{b64String}'
     print(dataUrl)
 
+
 # config helpers
 
 def load_default_vis_config():
@@ -59,17 +60,19 @@ def load_default_vis_config():
         }
     }
 
+
 def add_plugin(vis_config, container, plugin_config):
-    plugins = vis_config['plugins']
-    if plugins is None:
+    plugins = vis_config.get('plugins')
+    if vis_config['plugins'] is None:
         vis_config['plugins'] = {}
     if container == 'data':
         plugins['data'] = plugin_config
     else:
-        plugin_container = plugins[container]
+        plugin_container = plugins.get(container)
         if plugin_container is None:
             plugin_container = plugins[container] = []
         plugin_container.append(plugin_config)
+
 
 DEFAULT_SATELITTE_LAYER = {
     'name': 'tile-layer',
