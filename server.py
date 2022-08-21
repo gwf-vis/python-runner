@@ -18,7 +18,10 @@ def run():
     resultFilePath = f'{filePath}.result'
     myEnv = os.environ
     myEnv['RESULT_FILE_PATH'] = resultFilePath
-    output = subprocess.check_output(['python3', filePath], env=myEnv).decode("utf-8")
+    runner_process = subprocess.Popen(
+        ['python3', filePath], env=myEnv, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    runner_process.wait()
+    (stdout, stderr) = runner_process.communicate()
     os.remove(filePath)
     result = ''
     try:
@@ -28,7 +31,7 @@ def run():
     except:
         pass
     return json.dumps({
-        'output': output,
+        'output': stdout.decode('utf-8') + '\n' + stderr.decode('utf-8'),
         'result': json.loads(result) if result else None
     })
 
