@@ -39,16 +39,16 @@ def render_pyplot_figure():
 def load_default_vis_config():
     return {
         'imports': {
-            'data-fetcher': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-data-fetcher.js',
-            'tile-layer': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-tile-layer.js',
-            'geojson-layer': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-geojson-layer.js',
-            'user-selection': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-selection.js',
-            'metadata': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-metadata.js',
-            'line-chart': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-line-chart.js',
-            'radar-chart': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-radar-chart.js',
-            'dimension-control': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-dimension-control.js',
-            'variable-control': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-variable-control.js',
-            'legend': 'http://gwfvis.usask.ca/RiverFlow/api/file/fetch/public/plugins/default/gwf-vis-plugin-legend.js'
+            'data-fetcher': '@/public/plugins/default/gwf-vis-plugin-data-fetcher.js',
+            'tile-layer': '@/public/plugins/default/gwf-vis-plugin-tile-layer.js',
+            'geojson-layer': '@/public/plugins/default/gwf-vis-plugin-geojson-layer.js',
+            'user-selection': '@/public/plugins/default/gwf-vis-plugin-selection.js',
+            'metadata': '@/public/plugins/default/gwf-vis-plugin-metadata.js',
+            'line-chart': '@/public/plugins/default/gwf-vis-plugin-line-chart.js',
+            'radar-chart': '@/public/plugins/default/gwf-vis-plugin-radar-chart.js',
+            'dimension-control': '@/public/plugins/default/gwf-vis-plugin-dimension-control.js',
+            'variable-control': '@/public/plugins/default/gwf-vis-plugin-variable-control.js',
+            'legend': '@/public/plugins/default/gwf-vis-plugin-legend.js'
         },
         'plugins': {
             'data': {
