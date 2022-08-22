@@ -75,9 +75,9 @@ def add_plugin(vis_config, container, plugin_config):
 
 
 DEFAULT_SATELITTE_LAYER = {
-    'name': 'tile-layer',
+    'import': 'tile-layer',
     'props': {
-        'name': 'Satelitte',
+        'layerName': 'Satelitte',
         'type': 'base-layer',
         'urlTemplate': 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
         'options': {
