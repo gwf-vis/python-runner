@@ -61,13 +61,15 @@ def load_vis_config():
     }
 
 
-def add_plugin(vis_config, container, plugin_config):
+def add_plugin(vis_config, plugin_config, container):
     plugins = vis_config.get('plugins')
     if vis_config['plugins'] is None:
         vis_config['plugins'] = {}
     if container == 'data':
         plugins['data'] = plugin_config
     else:
+        if container is None:
+            container = 'hidden'
         plugin_container = plugins.get(container)
         if plugin_container is None:
             plugin_container = plugins[container] = []
