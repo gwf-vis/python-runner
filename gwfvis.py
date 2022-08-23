@@ -7,7 +7,7 @@ from io import BytesIO
 SERVER_ENDPOINT = 'http://localhost:5000'
 
 
-def generate_vis(data):
+def render(data):
     filePath = os.environ['RESULT_FILE_PATH']
     with open(filePath, 'w') as file:
         text = dumps_json(data)
@@ -36,7 +36,7 @@ def render_pyplot_figure():
 
 # config helpers
 
-def load_default_vis_config():
+def load_vis_config():
     return {
         'imports': {
             'data-fetcher': '@/public/plugins/default/gwf-vis-plugin-data-fetcher.js',
@@ -74,7 +74,7 @@ def add_plugin(vis_config, container, plugin_config):
         plugin_container.append(plugin_config)
 
 
-DEFAULT_SATELITTE_LAYER = {
+SATELITTE_LAYER = {
     'import': 'tile-layer',
     'props': {
         'layerName': 'Satelitte',
