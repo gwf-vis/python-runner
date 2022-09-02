@@ -61,7 +61,7 @@ def load_vis_config():
     }
 
 
-def add_plugin(vis_config, plugin_config, container = 'hidden'):
+def add_plugin(vis_config, plugin_config, container='hidden'):
     plugins = vis_config.get('plugins')
     if vis_config['plugins'] is None:
         vis_config['plugins'] = {}
@@ -74,6 +74,68 @@ def add_plugin(vis_config, plugin_config, container = 'hidden'):
         plugin_container.append(plugin_config)
 
 
+def add_map_element(vis_config, plugin, props=None, containerProps=None):
+    plugin_config = {
+        'import': plugin,
+        'props': props,
+        'containerProps': containerProps
+    }
+    add_plugin(
+        vis_config,
+        plugin_config,
+        'hidden'
+    )
+    return plugin_config
+
+
+def add_sidebar_element(vis_config, plugin, props=None, containerProps=None):
+    plugin_config = {
+        'import': plugin,
+        'props': props,
+        'containerProps': containerProps
+    }
+    add_plugin(
+        vis_config,
+        plugin_config,
+        'sidebar'
+    )
+    return plugin_config
+
+
+def add_main_view_element(vis_config, plugin, props=None, containerProps=None):
+    plugin_config = {
+        'import': plugin,
+        'props': props,
+        'containerProps': containerProps
+    }
+    add_plugin(
+        vis_config,
+        plugin_config,
+        'main'
+    )
+    return plugin_config
+
+
+def update_props(plugin_config, props):
+    plugin_config['props'] = props
+
+
+def update_prop(plugin_config, key, value):
+    if plugin_config['props'] is None:
+        plugin_config['props'] = {}
+    plugin_config['props'][key] = value
+
+
+def update_container_props(plugin_config, props):
+    plugin_config['containerProps'] = props
+
+
+def update_container_prop(plugin_config, key, value):
+    if plugin_config['containerProps'] is None:
+        plugin_config['containerProps'] = {}
+    plugin_config['containerProps'][key] = value
+
+
 SATELITTE_LAYER = {
     'import': 'tile-layer',
     'props': {
@@ -83,5 +145,14 @@ SATELITTE_LAYER = {
         'options': {
             'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
         }
+    }
+}
+
+SATELITTE_LAYER_PROPS = {
+    'layerName': 'Satelitte',
+    'type': 'base-layer',
+    'urlTemplate': 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    'options': {
+            'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
     }
 }
