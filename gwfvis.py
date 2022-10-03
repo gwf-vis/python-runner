@@ -54,7 +54,8 @@ def load_vis_config():
             'data': {
                 'import': 'data-fetcher',
                 'props': {
-                    'sqliteWorkerUrl': 'http://gwfvis.usask.ca/RiverFlow/assets/sqljs/worker.sql-wasm.js'
+                    'sqliteWorkerUrl': '//gwfvis.usask.ca/RiverFlow/assets/sqljs/worker.sql-wasm.js',
+                    'remoteSqlRunnerUrl': '//gwfvis.usask.ca/RiverFlow/api/file/query'
                 }
             },
         }
