@@ -117,6 +117,16 @@ def add_main_view_element(vis_config, plugin, props=None, containerProps=None):
     return plugin_config
 
 
+def update_custom_variables(plugin_config, custom_variables):
+    plugin_config['customVariables'] = custom_variables
+
+
+def update_custom_variable(plugin_config, key, value):
+    if plugin_config['customVariables'] is None:
+        plugin_config['customVariables'] = {}
+    plugin_config['customVariables'][key] = value
+
+
 def update_props(plugin_config, props):
     plugin_config['props'] = props
 
