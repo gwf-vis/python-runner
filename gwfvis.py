@@ -12,6 +12,7 @@ def render(data):
     with open(filePath, 'w') as file:
         text = dumps_json(data)
         file.write(text)
+    print('The visualization has been rendered in a new tab.')
 
 
 def loads_json(data):
