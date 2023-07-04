@@ -3,6 +3,7 @@ from flask import json
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
+import datetime
 
 SERVER_ENDPOINT = 'http://localhost:5000'
 
@@ -12,7 +13,7 @@ def render(data):
     with open(filePath, 'w') as file:
         text = dumps_json(data)
         file.write(text)
-    print('The visualization has been rendered in a new tab.')
+    print(f'{datetime.datetime.now()} - The visualization has been rendered in a new tab.')
 
 
 def loads_json(data):
